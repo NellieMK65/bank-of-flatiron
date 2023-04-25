@@ -1,18 +1,11 @@
-import {
-	Table,
-	TableContainer,
-	Tbody,
-	Td,
-	Th,
-	Thead,
-	Tr,
-} from '@chakra-ui/react';
+import { Table, TableContainer, Tbody, Th, Thead, Tr } from '@chakra-ui/react';
 import React from 'react';
+import { Transaction } from './Transaction';
 
-export const TransactionList = () => {
+export const TransactionList = ({ transactions }) => {
 	return (
 		<TableContainer>
-			<Table variant={'simple'} size={'sm'}>
+			<Table variant={'simple'} size={'md'}>
 				<Thead>
 					<Tr>
 						<Th>Id</Th>
@@ -23,13 +16,12 @@ export const TransactionList = () => {
 					</Tr>
 				</Thead>
 				<Tbody>
-					<Tr>
-						<Td>1</Td>
-						<Td>2019-12-01</Td>
-						<Td>Paycheck from Bob's Burgers</Td>
-						<Td>Income</Td>
-						<Td>1000</Td>
-					</Tr>
+					{transactions.map((transaction) => (
+						<Transaction
+							key={transaction.id}
+							transaction={transaction}
+						/>
+					))}
 				</Tbody>
 			</Table>
 		</TableContainer>
