@@ -25,5 +25,25 @@ export const TransactionList = ({ transactions }) => {
 				</Tbody>
 			</Table>
 		</TableContainer>
+		// <table>
+		// 	<th>
+		// 		<td>Id</td>
+		// 		<td>Date</td>
+		// 		<td>Deacription</td>
+		// 		<td>Category</td>
+		// 		<td>Amount</td>
+		// 	</th>
+		// 	<tbody>
+		// 		{transactions.map((transaction) => (
+		// 			<tr key={transaction.id}>
+		// 				<td>{transaction.id}</td>
+		// 				<td>{transaction.date}</td>
+		// 				<td>{transaction.description}</td>
+		// 				<td>{transaction.category}</td>
+		// 				<td>{transaction.amount}</td>
+		// 			</tr>
+		// 		))}
+		// 	</tbody>
+		// </table>
 	);
 };
