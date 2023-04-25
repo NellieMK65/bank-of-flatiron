@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Heading, VStack } from '@chakra-ui/react';
 import { TransactionList } from './components/TransactionList';
+import { AddTransaction } from './components/AddTransaction';
 
 function App() {
 	const [transactions, setTransactions] = useState([]);
@@ -17,10 +18,21 @@ function App() {
 			.catch((err) => console.log(err));
 	}, []);
 
+	const handleAddTransaction = (newTransaction) => {
+		setTransactions([
+			...transactions,
+			{
+				id: transactions.length + 1,
+				...newTransaction,
+				date: new Date(newTransaction.date).toDateString(),
+			},
+		]);
+	};
+
 	return (
-		<VStack>
+		<VStack spacing={3}>
 			<Heading as="h3">Bank Of Flatiron</Heading>
-			<div>Form</div>
+			<AddTransaction handleAddTransaction={handleAddTransaction} />
 			<TransactionList transactions={transactions} />
 		</VStack>
 	);
